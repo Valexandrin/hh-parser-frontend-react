@@ -2,12 +2,44 @@ body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
   }
+
+  h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    color: #999;    
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+
+  li {
+    list-style-type: none;
+    width: fit-content;
+  }
+
+  .seen {
+    background-color: rgb(215, 210, 210);    
+  }
+
+  .new {
+    background-color: rgb(202, 225, 202);
+  }
+
+  .vacancy-name {
+    color: rgb(7, 26, 119);
+    font-style: oblique;
+    font-weight: bold;
+  }
   
   ol, ul {
     padding-left: 30px;
+    border: 1px solid black;    
   }
   
-  .board-row:after {
+  
+  /* .board-row:after {
     clear: both;
     content: "";
     display: table;
@@ -48,4 +80,8 @@ body {
   .game-info {
     margin-left: 20px;
   }
+
+  .clock {
+    outline-offset: 2px;
+  } */
   
