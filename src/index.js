@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import PersonList from './PersonList';
+import VacancyList from './vacancyList';
 
 
 class Clock extends React.Component {
@@ -30,7 +30,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Local time: {this.state.date.toLocaleTimeString()}</h1>        
+        <h3>Local time: {this.state.date.toLocaleTimeString()}</h3>        
       </div>
     );
   }
@@ -42,7 +42,7 @@ class Board extends React.Component {
     return (
       <div>
         <Clock />       
-        <PersonList />
+        <VacancyList />
       </div>
     )
   }
