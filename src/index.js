@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import VacancyList from './vacancyList';
+import Board from './vacancyList';
 
 
 class Clock extends React.Component {
@@ -37,16 +37,16 @@ class Clock extends React.Component {
 }
 
 
-class Board extends React.Component {
+class VacancyPage extends React.Component {
   render() {
     return (
       <div>
         <Clock />       
-        <VacancyList />
+        <Board />
       </div>
     )
   }
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Board />);
+root.render(<VacancyPage />);
