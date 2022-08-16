@@ -1,7 +1,29 @@
 import React from 'react';
 import axios from 'axios';
+import Moment from 'moment';
 
-export default class VacancyList extends React.Component {
+function Vacancy(props) {
+  return (
+    <div className='vacancy' onClick={props.onClick}>      
+      <ul>
+        <div>
+          <span class={props.status}>
+            <span class="status">{props.status}</span>
+          </span>
+          <span class="vacancy-name">{props.name}</span>
+        </div>            
+        <li>{props.area}</li>            
+        <li>{props.published_at}</li>
+        <li>{props.employer}</li>          
+        <li>{props.schedule}</li>          
+        <li dangerouslySetInnerHTML={{ __html: props.requirement }} />                    
+        <li dangerouslySetInnerHTML={{ __html: props.responsibility }} />          
+      </ul>
+    </div>
+  )
+}
+
+export default class Board extends React.Component {
   state = {
     vacancies: ['EMPTY LIST']
   }
@@ -13,21 +35,28 @@ export default class VacancyList extends React.Component {
     })
   }
 
+  renderVacancy(vacancy) {
+    return (
+      <Vacancy 
+        name={vacancy.name}
+        status={vacancy.status}
+        area={vacancy.area}
+        published_at={Moment(vacancy.published_at).format('DD MMM YYYY HH:mm')}
+        employer={vacancy.employer}
+        schedule={vacancy.schedule}
+        requirement={vacancy.requirement}
+        responsibility={vacancy.responsibility}
+        onClick={() => prompt("Hi")}
+      />
+    )
+  }
+
   render() {
     return (      
-      this.state.vacancies.map(vacancy =>        
-        <a href='#'>
-          <ul>
-            <li class="vacancy-name">{vacancy.name}</li>
-            <li>{vacancy.area}</li>          
-            <li>{vacancy.published_at}</li>          
-            <li><div class={vacancy.status}> {vacancy.status}</div></li>          
-            <li>{vacancy.employer}</li>          
-            <li>{vacancy.schedule}</li>          
-            <li dangerouslySetInnerHTML={{ __html: vacancy.requirement }} />                    
-            <li dangerouslySetInnerHTML={{ __html: vacancy.responsibility }} />          
-          </ul>
-        </a>
+      this.state.vacancies.map(vacancy =>
+        <div className='board-row'>
+          {this.renderVacancy(vacancy)}
+        </div>        
       )      
     )
   }
