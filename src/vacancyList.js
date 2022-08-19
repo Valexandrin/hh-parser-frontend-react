@@ -10,7 +10,7 @@ function Vacancy(props) {
           <span class={props.status}>
             <span class="status">{props.status}</span>
           </span>
-          <span class="vacancy-name"><b> {props.name}</b></span>
+          <span class="vacancy-name"><b> {props.name}</b></span>          
         </div>            
         <li>{props.area}</li>            
         <li>{props.published_at}</li>
@@ -25,14 +25,24 @@ function Vacancy(props) {
 
 export default class Board extends React.Component {
   state = {
-    vacancies: ['EMPTY LIST']
+    vacancies: ['EMPTY LIST'],
+    description: 'Place for a vacancy description',
   }
 
   componentDidMount() {    
     axios.get('/api/v1/vacancies/')
     .then(res => {
       this.setState({ vacancies: res.data })
-    })
+    })    
+  }
+
+  renderDescription(uid) {    
+    return (
+      axios.get(`/api/v1/vacancies/${uid}`)
+      .then(res => {
+        this.setState({ description: res.data.description })
+      })
+    )
   }
 
   renderVacancy(vacancy) {
@@ -45,8 +55,8 @@ export default class Board extends React.Component {
         employer={vacancy.employer}
         schedule={vacancy.schedule}
         requirement={vacancy.requirement}
-        responsibility={vacancy.responsibility}
-        onClick={() => prompt("Hi")}
+        responsibility={vacancy.responsibility}        
+        onClick={() => this.renderDescription(vacancy.uid)}
       />
     )
   }
@@ -60,8 +70,7 @@ export default class Board extends React.Component {
           )}
         </div>        
         <div class='description'>
-          <img src='%SRC_URL%/find_job.png' alt="..." />
-          <br/>grtrtbtr
+          <div dangerouslySetInnerHTML={{ __html: this.state.description }} />          
         </div>
       </div>     
     )
