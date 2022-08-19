@@ -53,11 +53,17 @@ export default class Board extends React.Component {
 
   render() {
     return (      
-      this.state.vacancies.map(vacancy =>
-        <div className='board-row'>
-          {this.renderVacancy(vacancy)}
+      <div class='box'>
+        <div class='vacancies_list' className='board-row'>
+          {this.state.vacancies.map(vacancy =>                    
+              this.renderVacancy(vacancy)
+          )}
         </div>        
-      )      
+        <div class='description'>
+          <img src='%SRC_URL%/find_job.png' alt="..." />
+          <br/>grtrtbtr
+        </div>
+      </div>     
     )
   }
 }
