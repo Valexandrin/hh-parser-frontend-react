@@ -4,22 +4,22 @@ import Moment from 'moment';
 
 function Vacancy(props) {
   return (
-    <div className='vacancy' onClick={props.onClick}>      
-      <ul>
-        <div>
-          <span class={props.status}>
+    <div class="vacancy" className='vacancy' onClick={props.onClick}>
+      <div class='box'>      
+        <div class='vacancy-box'>
+          <div class={props.status}>
             <span class="status">{props.status}</span>
-          </span>
-          <span class="vacancy-name"><b> {props.name}</b></span>          
-        </div>            
-        <li>{props.area}</li>            
-        <li>{props.published_at}</li>
-        <li>{props.employer}</li>          
-        <li>{props.schedule}</li>          
-        <li dangerouslySetInnerHTML={{ __html: props.requirement }} />                    
-        <li dangerouslySetInnerHTML={{ __html: props.responsibility }} />          
-      </ul>
-    </div>
+          </div>          
+          <div><small>{props.published_at}</small></div>          
+        </div>
+        <div>
+          <b>{props.name}</b>
+        </div>
+      </div>
+      <p>{props.employer} | {props.area} | {props.schedule}</p>
+      <p dangerouslySetInnerHTML={{ __html: props.requirement }} />                    
+      <p dangerouslySetInnerHTML={{ __html: props.responsibility }} />      
+    </div>    
   )
 }
 
@@ -51,7 +51,7 @@ export default class Board extends React.Component {
         name={vacancy.name}
         status={vacancy.status}
         area={vacancy.area}
-        published_at={Moment(vacancy.published_at).format('DD MMM YYYY HH:mm')}
+        published_at={Moment(vacancy.published_at).format('DD.MM.YY HH:mm')}
         employer={vacancy.employer}
         schedule={vacancy.schedule}
         requirement={vacancy.requirement}

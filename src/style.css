@@ -8,12 +8,28 @@ body {
   }
 
   .box {
-    display: flex;    
+    display: flex;   
+     
   }
 
     .box>* {
-      flex: 0 0 50%;
+      flex: 0 0 50%;      
     }
+  
+  .vacancy-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vacancy {
+    border: 1px solid gray;  
+    margin: 0 0 0.5em 0;  
+    padding: 0.2em 0 0 0.2em; 
+  }
+
+  .vacancy:hover {
+    outline: 3px solid blanchedalmond;    
+  }
 
   .description {
     border: 1px solid gray;
@@ -31,15 +47,8 @@ body {
     }
   }
 
-  ol, ul {        
-    padding-left: 0em;
-    border: 1px solid gray;  
-    margin: 0 0 0.5em 0;  
-    padding: 0.2em 0 0 0.2em;    
-  }
-
-  ul:hover {
-    outline: 3px solid blanchedalmond;    
+  ol, ul {            
+    background: whitesmoke;    
   }
 
   li {
