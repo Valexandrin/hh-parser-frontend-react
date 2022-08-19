@@ -10,7 +10,7 @@ function Vacancy(props) {
           <span class={props.status}>
             <span class="status">{props.status}</span>
           </span>
-          <span class="vacancy-name">{props.name}</span>
+          <span class="vacancy-name"><b> {props.name}</b></span>
         </div>            
         <li>{props.area}</li>            
         <li>{props.published_at}</li>
