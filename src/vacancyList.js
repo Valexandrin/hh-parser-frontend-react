@@ -4,19 +4,23 @@ import Moment from 'moment';
 
 function Vacancy(props) {
   return (
-    <div class="vacancy" className='vacancy' onClick={props.onClick}>
-      <div class='box'>      
-        <div class='vacancy-box'>
-          <div class={props.status}>
-            <span class="status">{props.status}</span>
-          </div>          
-          <div><small>{props.published_at}</small></div>          
-        </div>
-        <div>
+    <div class='vacancy' onClick={props.onClick}>  
+      <div class='box'>
+        <div>      
           <b>{props.name}</b>
-        </div>
+        </div>        
+        <div>
+          <small class={props.status}>{props.status}</small>
+          <small> {props.published_at}</small>
+        </div>        
       </div>
-      <p>{props.employer} | {props.area} | {props.schedule}</p>
+
+      <div class='box'>
+        <small>{props.employer}</small>
+        <small>{props.area}</small>
+        <small>{props.schedule}</small>
+      </div>
+
       <p dangerouslySetInnerHTML={{ __html: props.requirement }} />                    
       <p dangerouslySetInnerHTML={{ __html: props.responsibility }} />      
     </div>    
@@ -63,15 +67,13 @@ export default class Board extends React.Component {
 
   render() {
     return (      
-      <div class='box'>
-        <div class='vacancies_list' className='board-row'>
+      <div class='board'>
+        <div class='vacancies-list'>
           {this.state.vacancies.map(vacancy =>                    
               this.renderVacancy(vacancy)
           )}
         </div>        
-        <div class='description'>
-          <div dangerouslySetInnerHTML={{ __html: this.state.description }} />          
-        </div>
+        <div class='description' dangerouslySetInnerHTML={{ __html: this.state.description }} />        
       </div>     
     )
   }
