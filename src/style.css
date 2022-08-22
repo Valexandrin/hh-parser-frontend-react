@@ -1,0 +1,88 @@
+body {
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;    
+  padding-left: 5%;
+  padding-right: 5%;  
+}
+
+  .board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;        
+  }
+
+    .vacancies-list {      
+      background: #fff;      
+    }
+
+      .vacancy {    
+        border: 1px solid rgba(0,0,0,.125);             
+        border-radius: 3px;
+        padding: 0.5em;         
+      }    
+
+      .vacancy:hover {
+        /* outline: 3px solid blanchedalmond;*/
+        background-color: whitesmoke;
+      }
+
+    .description {
+      border: 1px solid rgba(0,0,0,.125); 
+      border-radius: 3px;
+      margin-left: 0.5em;              
+      padding: 0.2em;            
+    }
+
+  .box {
+    display: flex;
+    justify-content: space-between;    
+    flex-wrap: wrap;
+    border-bottom: 1px solid gainsboro;    
+    margin: 0 0 2px 0;    
+  }
+
+  .seen {    
+    background-color: rgb(215, 210, 210);        
+  }
+
+  .new {    
+    background-color: rgb(202, 225, 202);            
+  }
+
+  h3 {    
+    font-size: large;
+    color: red;    
+  }
+
+  @media (min-width: 50em) {
+    h3 {
+      color: rgba(108, 105, 105, 0.727);
+    }
+  }
+
+  p {
+    margin: 0.5em 0 0 0;
+  }
+
+  .square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+  } 
+
+  .clock {    
+    outline: 1px solid rgba(220, 220, 220, 0.814);
+    border-radius: 3px;
+    width: fit-content;
+    padding: 0 0.5em 0 0.5em;
+  }

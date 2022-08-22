@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './style.css';
 import Board from './vacancyList';
 
 
@@ -29,7 +29,7 @@ class Clock extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="clock">
         <h3>Local time: {this.state.date.toLocaleTimeString()}</h3>        
       </div>
     );
